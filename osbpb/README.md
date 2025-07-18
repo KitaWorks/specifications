@@ -38,6 +38,8 @@ SUCCESS! package placed at /root/example.tar.gz
 
 ```
 -p   启动打包环境
+  -e   进入打包环境后，自动执行一个 bash 脚本
+  -y   退出打包环境时，跳过询问，自动打包
 -i <file> <pname>  安装一个包，并标记该包的名称
 -u <pname> 卸载一个包
 -l 列出所有已经安装的包
