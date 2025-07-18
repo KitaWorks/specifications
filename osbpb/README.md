@@ -20,7 +20,7 @@ SUCCESS! package placed at /root/example.tar.gz
 
 ## OSBPB 数据库
 
-一般来说，osbpb 的数据库文件存放在 `/usr/share/osbpb/db` 里，是一个纯文文件。它的内容大概如下：  
+一般来说，osbpb 的数据库文件存放在 `/var/lib/osbpb/db` 里，是一个纯文本文件。它的内容大概如下：  
 
 ```osbpb db
 [package1]
