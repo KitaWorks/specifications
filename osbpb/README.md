@@ -9,6 +9,7 @@ osbpb 是 eternalOS 的包管理器。
 使用 `osbpb -p` 进入打包环境。  
 里面会挂载宿主机的部分目录为只读，如 `/usr/bin` 。  
 构建输出需要把 `(chroot)/pkgroot` 当做 `/` 。  
+打包环境里面没有网络。  
 当用户退出环境时，会询问用户是否打包，示例如下：  
 
 ```Terminal
@@ -17,6 +18,8 @@ Are you want build this package?(y/n)y
 Type pname here: example
 SUCCESS! package placed at /root/example.tar.gz
 ```
+
+由于打包环境没有网络，所以用户还必须利用 `-s <folder>` 选项将源代码包裹放在打包环境的 `/srcs` 里面。  
 
 ## OSBPB 数据库
 
@@ -37,11 +40,12 @@ SUCCESS! package placed at /root/example.tar.gz
 如下：
 
 ```
--p   启动打包环境
-  -e   进入打包环境后，自动执行一个 bash 脚本
-  -y   退出打包环境时，跳过询问，自动打包
--i <file> <pname>  安装一个包，并标记该包的名称
+-p 启动打包环境
+-e 进入打包环境后，自动执行一个 bash 脚本
+-y 退出打包环境时，跳过询问，自动打包
+-i <file> <pname> 安装一个包，并标记该包的名称
 -u <pname> 卸载一个包
 -l 列出所有已经安装的包
 -o <pname> <file>  导出一个包。
+-s <folder> 将指定文件夹中的所有内容复制到打包环境内的 /srcs 里面。
 ```
