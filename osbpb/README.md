@@ -1,5 +1,7 @@
 # KWT osbpb 规范
 
+规范版本：20250721-v1
+
 osbpb 是 eternalOS 的包管理器。
 
 它不会管理依赖，也没有版本这个概念。
@@ -49,3 +51,19 @@ SUCCESS! package placed at /root/example.tar.gz
 -o <pname> <file>  导出一个包。
 -s <folder> 将指定文件夹中的所有内容复制到打包环境内的 /srcs 里面。
 ```
+
+## 未来计划
+
+### 版本管理
+
+我们强制使用 0.0.0 这种格式的版本号。其他格式不被允许。  
+一个包可以被升级也可以被降级。 
+
+该未来规划将会对部分参数产生影响，如下：
+
+```
+-i <file> <pname=version>
+```
+
+osbpb 打包环境退出时将会提醒输入版本号，并且输出的文件名将会变成类似于 `example-1.0.0.tar.gz` 的格式。  
+osbpb 数据库中的 `[pname]` 将会变成 `[pname=version]`。  
