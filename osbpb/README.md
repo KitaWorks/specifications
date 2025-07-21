@@ -1,6 +1,6 @@
 # KWT osbpb 规范
 
-规范版本：20250721-v1
+规范版本：20250721-v2
 
 osbpb 是 eternalOS 的包管理器。
 
@@ -37,6 +37,25 @@ SUCCESS! package placed at /root/example.tar.gz
 /usr/bin/example4
 ```
 
+## 软件包结构
+
+软件包的扩展名为 `*.pkg`，其本质只是一个 `*.tar.gz` 而已。  
+软件包拆开之后如下：  
+```
+package.info
+data.tar.gz
+```
+
+其中，`package.info` 放置了软件包的元数据，而 `data.tar.gz` 才是真正的打包时 `(chroot)/pkgroot` 的内容。
+
+`package.info` 的格式如下：
+
+```Package Info
+pname=example
+version=1.0.0-r1
+deps=[dep1,dep2]
+```
+
 ## 其他参数
 
 如下：
@@ -56,7 +75,7 @@ SUCCESS! package placed at /root/example.tar.gz
 
 ### 版本管理
 
-我们强制使用 0.0.0 这种格式的版本号。其他格式不被允许。  
+我们强制使用 0.0.0 这种格式的版本号。不过也可以使用 0.0.0-rN 这种版本号（N 使用数字代替）。其他格式的版本号不被允许。  
 一个包可以被升级也可以被降级。 
 
 该未来规划将会对部分参数产生影响，如下：
