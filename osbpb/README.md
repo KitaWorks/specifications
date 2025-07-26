@@ -83,7 +83,7 @@ deps=[dep1,dep2]
 
 ## osbpb-get 组件
 
-osbpb-get 和 osbpb 是同一个组件。曾经，它们两个是不同的组件。但是，它们的调用方式仍然是两个命令（待定）。  
+osbpb-get 和 osbpb 是同一个组件。但是，它们的调用方式仍然是两个命令（待定）。曾经，它们两个是不同的组件。  
 osbpb 在 osbpb-get 的基础上，添加了依赖管理，远程软件源（eUP 和 eUB）。  
 eUP，即 eternalOS User Packages，是为用户提供软件包构建脚本（即 `*.osb`）的平台。官方未来将会提供官方版本的 eUP。  
 eUB，即 eternalOS User Binary Packages，是为用户提供二进制软件包（即 `*.okg`）的平台。eUB 需要用户自行搭建，官方没有提供它的计划。  
