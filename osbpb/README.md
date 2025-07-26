@@ -54,7 +54,7 @@ data.tar.gz
 
 其中，`package.info` 放置了软件包的元数据，而 `data.tar.gz` 才是真正的打包时 `(chroot)/pkgroot` 的内容。
 
-`package.info` 的格式如下：
+`package.info` 的格式如下（我们认为这段需要重做。）：
 
 ```Package Info
 pname=example
