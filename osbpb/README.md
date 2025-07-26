@@ -1,10 +1,8 @@
 # KWT osbpb 规范
 
-规范版本：20250726-v1
+规范版本：20250726-v2
 
 osbpb 是 eternalOS 的包管理器。
-
-它不会管理依赖，也没有版本这个概念。
 
 ## 文件扩展名
 
@@ -67,12 +65,14 @@ deps=[dep1,dep2]
 如下：
 
 ```
--p 启动手动打包环境
--e 打包一个 *.osb 文件
--i <file> 安装一个包。
--u <pname> 卸载一个包
--l 列出所有已经安装的包
--o <pname> <file> 导出一个包。
+pack 启动手动打包环境
+build 打包一个 *.osb 文件
+install <pname> 从 eUP 安装一个包。
+binstall <pname> 从 eUB 安装一个包。
+uninstall <pname> 卸载一个包
+list 列出所有已经安装的包
+export <pname> <file> 导出一个包。
+-i <file> 安装一个本地软件包。
 -s <folder> 将指定文件夹中的所有内容复制到打包环境内的 /srcs 里面。
 -h 显示版本，兼容的规范版本，以及帮助信息
 ```
@@ -83,8 +83,8 @@ deps=[dep1,dep2]
 
 ## osbpb-get 组件
 
-osbpb-get 和 osbpb 是同一个组件。但是，它们的调用方式仍然是两个命令（待定）。曾经，它们两个是不同的组件。  
-osbpb 在 osbpb-get 的基础上，添加了依赖管理，远程软件源（eUP 和 eUB）。  
+osbpb-get 和 osbpb 是同一个组件。曾经，它们两个是不同的组件。  
+osbpb-get 在 osbpb 的基础上，添加了依赖管理，远程软件源（eUP 和 eUB）。  
 eUP，即 eternalOS User Packages，是为用户提供软件包构建脚本（即 `*.osb`）的平台。官方未来将会提供官方版本的 eUP。  
 eUB，即 eternalOS User Binary Packages，是为用户提供二进制软件包（即 `*.okg`）的平台。eUB 需要用户自行搭建，官方没有提供它的计划。  
 
